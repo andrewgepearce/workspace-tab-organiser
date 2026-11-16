@@ -10,7 +10,7 @@ Rules are a hostname and a path prefix, tried from top to bottom. The first matc
 
 The popup works on the current workspace only. Other workspaces are not listed and are not moved. You see the proposed groups first. Nothing moves until you press Apply. From the popup you can also add a rule for an unmatched tab, or for an automatic group, and the preview refreshes. The Options page is where the full list lives: add a rule from a URL, drag a row to change the order, and save. Saving stores the list on this computer.
 
-<!-- Add the popup screenshot at docs/store/images/popup-preview.png, then replace this comment with an image link to that file. -->
+![The popup previewing groups for the current workspace](docs/store/images/popup-preview.png)
 
 ## Install
 
