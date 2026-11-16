@@ -1,0 +1,7 @@
+flowchart TD
+    Edit[Edit the in-page draft] --> Choice{Save or discard?}
+    Choice -->|Save| Validate[Validate the whole ordered list]
+    Validate -->|Valid| Write[Write once to chrome.storage.local]
+    Validate -->|Invalid| Errors[Show per-rule field errors and write nothing]
+    Choice -->|Discard| Reload[Reload the saved rules]
+    Edit -->|Unsaved edits| Warn[Warn on beforeunload]

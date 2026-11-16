@@ -1,0 +1,14 @@
+flowchart LR
+    Actor[Andrew] -->|Configure ordered rules| Options[Options page]
+    Options -->|Save locally| Storage[Local extension storage]
+    Actor -->|Open organiser| Preview[Preview]
+    Actor -->|Add rule from an unmatched tab| Preview
+    Preview -->|Save the new rule| Storage
+    Preview -->|Read current window| Tabs[Opera tabs]
+    Preview -->|Read ordered rules| Storage
+    Preview -->|Show proposed clusters| Actor
+    Actor -->|Apply preview| Organiser[Tab organiser]
+    Organiser -->|Move within current window and workspace| Tabs
+    Organiser -->|Report result| Actor
+    Note[Read-only workspace metadata. No workspace assignment or Chrome tab groups.]
+    Organiser -.-> Note

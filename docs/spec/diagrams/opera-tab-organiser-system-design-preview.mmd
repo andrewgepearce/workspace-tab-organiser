@@ -1,0 +1,31 @@
+flowchart TD
+    Open[Open the organiser popup] --> Rules[Read saved rules from local storage]
+    Rules --> State{What was saved?}
+    State -->|No rules and default off| NoRules[Explain and link to Options]
+    State -->|Unreadable| Unreadable[Explain that saved rules could not be read]
+    State -->|Rules or default on| Active[Query active tabs in the current window]
+    Active --> Detect{Newest lastAccessed has a workspace id?}
+    Detect -->|Yes| Scope[Keep only that workspace]
+    Detect -->|No| Window[Use every workspace and say so]
+    Scope --> Query[Query the current window and keep that scope]
+    Window --> Query
+    Query --> Plan[Plan contiguous blocks]
+    Plan --> Outcome{What can be shown?}
+    Outcome -->|A plan| Show[Show the heading, summary, cards, unmatched and non-web tabs]
+    Outcome -->|Cannot plan| Reason[Explain the planning failure]
+    Show --> Add{Add rule?}
+    Add -->|Single tab or automatic card| SaveRule[Save that rule at the end of the list]
+    SaveRule --> Again[Read this workspace again and plan]
+    Again --> Show
+    Add -->|Not now| Dock[Keep Apply and Cancel visible]
+    NoRules --> Dock
+    Unreadable --> Dock
+    Reason --> Dock
+    Dock --> Choice{Apply or Cancel?}
+    Choice -->|Cancel| Unchanged[Leave every tab where it is]
+    Choice -->|Apply| Recheck[Detect the workspace again and plan that scope]
+    Recheck --> Same{Same fingerprint?}
+    Same -->|No| Refresh[Apply nothing and show the new preview]
+    Same -->|Yes| Move[Move tabs in that scope only]
+    Refresh --> Unchanged
+    Move --> Unchanged

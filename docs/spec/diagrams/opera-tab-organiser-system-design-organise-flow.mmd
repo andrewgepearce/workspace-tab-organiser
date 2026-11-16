@@ -1,0 +1,23 @@
+flowchart TD
+    Start[Open organiser] --> Read[Read current window tabs and ordered rules]
+    Read --> Match[Match each HTTP or HTTPS tab to its first matching rule]
+    Match --> Default{Default rule on?}
+    Default -->|No| Keep[Group matching tabs and leave unmatched tabs where they are]
+    Default -->|Yes| Catch[Group unmatched keys held by at least 2 tabs]
+    Catch --> Order[Order rule groups, automatic groups A to Z, then single tabs by title]
+    Keep --> Preview[Present preview without moving tabs]
+    Order --> Preview
+    Preview --> AddRule{Add rule?}
+    AddRule -->|Yes| StoreRule[Save the rule and plan again]
+    StoreRule --> Preview
+    AddRule -->|No| Decision{Apply?}
+    Decision -->|No| End[Leave tabs unchanged]
+    Decision -->|Yes| Recheck[Re-read tabs and rules and plan again]
+    Recheck --> Same{Same target order, pins and active tabs?}
+    Same -->|No| Refresh[Apply nothing and show the new preview]
+    Same -->|Yes| Move[Move each changed unpinned suffix to the workspace end]
+    Move --> Verify[Re-query and record mismatches as failures]
+    Verify --> Active[Restore a workspace active tab only if it changed]
+    Active --> Report[Report moved, unchanged, unmatched and failed tabs]
+    Report --> End
+    Refresh --> End

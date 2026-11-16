@@ -1,0 +1,14 @@
+flowchart TD
+    Add[Choose Add from URL] --> Field[Show the URL field over the host and path columns]
+    Field --> Key{Enter, Escape or blur?}
+    Key -->|Escape| Cancel[Remove the empty row]
+    Key -->|Invalid URL| Error[Show an inline error and keep the field open]
+    Error --> Field
+    Key -->|Valid URL| Infer[Fill the hostname and the full path]
+    Infer --> Name[Show the grip, derived name, host, path, edit icon and delete icon]
+    Name --> Order[Drag the grip]
+    Order --> Choice{Save or discard?}
+    Choice -->|Save| Unique{Hostname and path unique?}
+    Unique -->|No| Reject[Show the error and write nothing]
+    Unique -->|Yes| Write[Write the ordered list once]
+    Choice -->|Discard| Reload[Reload the saved rules]

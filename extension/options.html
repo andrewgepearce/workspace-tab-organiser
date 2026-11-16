@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>Workspace Tab Organiser rules</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <h1>Workspace Tab Organiser rules</h1>
+      <p id="intro">Rules are tried from top to bottom and the first match wins. Choose Add from URL and paste an address. Drag a row by its grip to change the order. Saving stores the whole list on this browser only. It is not synchronised. A rule added from the popup is saved immediately and appears at the end of this list.</p>
+      <p id="path-hint">A rule with no path matches every path on that hostname.</p>
+      <p id="status" role="status"></p>
+      <p id="unsaved" role="status"></p>
+      <p id="empty">No rules yet. Add a rule from a URL, then save it on this browser.</p>
+      <ol id="rules"></ol>
+      <section class="setting">
+        <h2>Automatic groups</h2>
+        <p id="group-unmatched-hint">This runs after the rules above. Tabs that match none of them are grouped by hostname and the first path segment when at least 2 tabs share that key. Those groups are ordered from A to Z. A single tab stays unmatched and is sorted by its title. Turning this off leaves unmatched tabs where they are.</p>
+        <div class="field">
+          <label for="group-unmatched">
+            <input type="checkbox" id="group-unmatched" aria-describedby="group-unmatched-hint" checked>
+            Group unmatched tabs automatically
+          </label>
+        </div>
+      </section>
+      <div class="actions">
+        <button type="button" id="add" disabled>Add from URL</button>
+        <button type="button" id="save" disabled>Save</button>
+        <button type="button" id="discard" disabled>Discard</button>
+      </div>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

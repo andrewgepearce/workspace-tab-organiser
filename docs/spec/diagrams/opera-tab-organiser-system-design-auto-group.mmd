@@ -1,0 +1,20 @@
+flowchart TD
+    Tab[Take the next tab] --> Scheme{HTTP or HTTPS?}
+    Scheme -->|No| Unavailable[Leave it unavailable]
+    Scheme -->|Yes| Rules[Try Andrew's rules in order]
+    Rules -->|First match| RuleGroup[Rule group]
+    Rules -->|No match| Switch{Default rule on?}
+    Switch -->|No| Stay[Leave unmatched tabs where they are]
+    Switch -->|Yes| Key[Key is hostname plus the first path segment]
+    Key --> Count{At least 2 tabs share that key in this workspace and pin category?}
+    Count -->|No| Single[Single tab]
+    Count -->|Yes| Auto[Automatic group]
+    RuleGroup --> Layout[Rule groups, then groups A to Z, then single tabs by title]
+    Auto --> Layout
+    Single --> Layout
+    Unavailable --> Tail[After the single tabs, in original order]
+    Stay --> Next{Another tab?}
+    Tail --> Next
+    Layout --> Next
+    Next -->|Yes| Tab
+    Next -->|No| Preview[Show rule groups, automatic groups, then unmatched tabs]

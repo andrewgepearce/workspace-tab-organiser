@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Opera tabs.move probe</title>
+    <link rel="stylesheet" href="move-probe.css">
+  </head>
+  <body>
+    <main>
+      <h1>Opera tabs.move probe</h1>
+      <p>
+        This page moves tabs in the current window only when their workspace name is exactly Test A.
+        It refuses to run otherwise. It does not create, close, reload or navigate a tab.
+      </p>
+      <p>
+        Use a test window. If restore fails, Test A can stay in a new order. Other workspaces are not passed to a move.
+      </p>
+      <p>
+        <button id="run" type="button">Run probe</button>
+        <button id="copy" type="button" disabled>Copy report</button>
+      </p>
+      <p id="status">Waiting.</p>
+      <pre id="report"></pre>
+    </main>
+    <script type="module" src="move-probe.js"></script>
+  </body>
+</html>

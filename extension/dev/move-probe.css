@@ -1,0 +1,47 @@
+:root {
+  color: #1c1917;
+  background: #f7f5f2;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 650;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+button {
+  font: inherit;
+  margin: 0 8px 0 0;
+  padding: 6px 12px;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+pre {
+  margin: 16px 0 0;
+  padding: 12px;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

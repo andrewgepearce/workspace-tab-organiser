@@ -1,0 +1,17 @@
+{
+  "name": "workspace-tab-organiser",
+  "version": "0.10.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Workspace Tab Organiser groups the tabs in your current workspace by your own site rules, and previews every move before it happens.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "package": "node scripts/package.js",
+    "screenshots": "node scripts/screenshots.js",
+    "check": "node --check extension/apply-plan.js && node --check extension/apply.js && node --check extension/arrangement.js && node --check extension/auto-group.js && node --check extension/browser-tabs.js && node --check extension/dev/move-plan.js && node --check extension/dev/move-probe.js && node --check extension/matching.js && node --check extension/options.js && node --check extension/popup-rule.js && node --check extension/popup.js && node --check extension/preview.js && node --check extension/rule-draft.js && node --check extension/rule-store.js && node --check extension/url-rule.js && node --check extension/workspace.js && node --check scripts/package.js && node --check scripts/screenshots.js && node --check test/apply.test.js && node --check test/arrangement.test.js && node --check test/auto-group.test.js && node --check test/matching.test.js && node --check test/move-probe.test.js && node --check test/options-page.test.js && node --check test/order.test.js && node --check test/package.test.js && node --check test/popup-rule.test.js && node --check test/preview.test.js && node --check test/rule-draft.test.js && node --check test/rule-store.test.js && node --check test/screenshots.test.js && node --check test/skeleton.test.js && node --check test/url-rule.test.js && node --check test/workspace.test.js"
+  }
+}

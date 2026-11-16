@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <title>Workspace Tab Organiser</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <div class="sheet">
+        <h1 id="heading">Preview</h1>
+        <p id="scope-note" hidden></p>
+        <p id="status" role="status">Reading this window.</p>
+        <p id="notice" role="status" aria-live="polite"></p>
+        <section id="blocks"></section>
+        <section id="unmatched"></section>
+        <section id="unavailable"></section>
+        <section id="report" hidden></section>
+      </div>
+      <div class="dock">
+        <p id="apply-reason"></p>
+        <p class="actions">
+          <button type="button" id="apply" disabled>Apply</button>
+          <button type="button" id="cancel">Cancel</button>
+        </p>
+        <footer>
+          <p>
+            <span id="name"></span>
+            <span id="version"></span>
+            <a id="options" href="options.html">Options</a>
+          </p>
+        </footer>
+      </div>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
